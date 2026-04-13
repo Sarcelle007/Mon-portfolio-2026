@@ -313,4 +313,40 @@ font-size:14px;
 margin-right:6px;
 }
 
+/* pour le pages en construiction */
+ 
+/* Style du conteneur central */
+.content {
+    text-align: center;
+    padding: 50px 20px;
+    font-family: 'Roboto', sans-serif;
+}
 
+/* Style de l'icône Grue */
+.crane-icon {
+    font-size: 80px; /* Taille de l'icône */
+    color: #f1c40f;  /* Couleur jaune chantier */
+    display: inline-block;
+    margin-bottom: 20px;
+    /* Animation de balancement */
+    animation: crane-swing 3s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+/* Animation de balancement */
+@keyframes crane-swing {
+    0% { transform: rotate(-12deg); }
+    50% { transform: rotate(12deg); }
+    100% { transform: rotate(-12deg); }
+}
+
+.content h1 {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.content p {
+    color: #666;
+    font-size: 1.1rem;
+}
