@@ -350,3 +350,82 @@ margin-right:6px;
     color: #666;
     font-size: 1.1rem;
 }
+
+/* =================================
+   RESPONSIVE DESIGN (Mobiles & Tablettes)
+   ================================= */
+
+@media screen and (max-width: 992px) {
+    .cellule {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+        padding: 0 20px;
+    }
+    
+    .apropo {
+        width: 90%; /* Prend plus de place sur tablette */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column; /* Menu au-dessus ou en-dessous du logo */
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    ul li {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        margin: 5rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Titre plus petit sur mobile */
+    }
+
+    .hero img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .cellule {
+        grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
+    }
+
+    .competences table {
+        width: 95%;
+        font-size: 0.9rem; /* Réduit la taille du tableau */
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header div a {
+        font-size: 1.6rem;
+    }
+
+    ul li a {
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+    }
+}
