@@ -12,26 +12,31 @@
 </head>
 <body>
     <header>
-        <div>
-            <a href="#">Mon Portfolio</a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="Index.html" class="active">Acceuill</a></li>
-                <li><a href="projets.html">Projets</a></li>
-                <li><a href="passion.html">Passions</a></li>
-                <li><a href="divertissement.html">Divertissement</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div>
+        <a href="#">Mon Portfolio</a>
+    </div>
+    <!-- Nouveau bouton hamburger -->
+    <div class="menu-toggle" id="mobile-menu">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="Index.html" class="active">Acceuill</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="passion.html">Passions</a></li>
+            <li><a href="divertissement.html">Divertissement</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
     
     <main>
         <section class="hero">
             <div>
                 <h1>je suis Mike kabela</h1>
                 <p>Passionne par le developpement de site web modere</p>
-                <a href="pages/projets.html">Voirs plus</a>
+                <a href="projets.html">Voirs plus</a>
             </div>
             <div>
                 <img src="image/photo.JPEG" alt="mike sur l'image" width="300">
@@ -99,5 +104,21 @@
         <i class="fa-brands fa-x-twitter"></i>
         <i class="fa-brands fa-google"></i>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            // Cela va déclencher l'animation CSS max-height et opacity
+            navList.classList.toggle('active');
+            
+            // Change l'icône
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+    </script>
+
 </body>
 </html>

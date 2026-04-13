@@ -354,78 +354,189 @@ margin-right:6px;
 /* =================================
    RESPONSIVE DESIGN (Mobiles & Tablettes)
    ================================= */
+/* ============================================================
+   RESPONSIVE DESIGN COMPLET
+   ============================================================ */
 
-@media screen and (max-width: 992px) {
-    .cellule {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
-        padding: 0 20px;
+@media screen and (max-width: 768px) {
+    
+    /* 1. HEADER & NAVIGATION */
+    header {
+        padding: 1rem 1.5rem;
+        position: relative;
+    }
+
+    header div a {
+        font-size: 1.5rem; /* Logo plus petit */
+    }
+
+    .menu-toggle {
+        display: block; /* Affiche le bouton ☰ */
+    }
+
+    ul.nav-list {
+        display: none; /* Cache le menu */
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    ul.nav-list.active {
+        display: flex; /* Affiche le menu quand on clique */
+    }
+
+    ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    /* 2. SECTION HERO (Texte et Image sur la même ligne) */
+    .hero {
+        flex-direction: row; 
+        flex-wrap: nowrap;   /* Force l'alignement côte à côte */
+        justify-content: space-between;
+        align-items: center;
+        margin: 3rem 1rem;
+        gap: 15px;
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem; /* Taille réduite pour mobile */
+        margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .hero img {
+        width: 150px; /* Image redimensionnée */
+        height: 150px;
+        flex-shrink: 0; /* Empêche la déformation */
+        border-width: 4px;
+    }
+
+    .hero a {
+        padding: 10px 15px;
+        font-size: 0.75rem;
+    }
+
+    /* 3. SECTION A PROPOS */
+    .apropo {
+        width: 90%; /* Prend plus de place sur petit écran */
+        margin: 3rem auto;
+    }
+
+    .apropo p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    /* 4. TABLEAU DES COMPÉTENCES (Scroll horizontal si besoin) */
+        /* 4. TABLEAU DES COMPÉTENCES (Adapté mobile/tablette) */
+    .competences table {
+        width: 95%;          /* Utilise presque toute la largeur */
+        margin: 0 auto;
+        font-size: 0.8rem;    /* Texte plus petit pour que tout rentre */
+    }
+
+    .competences table th, 
+    .competences table td {
+        padding: 8px 4px;     /* Moins d'espace interne */
+        word-break: break-word; /* Coupe les mots si nécessaire */
+    }
+
+    /* On réduit la largeur des colonnes pour optimiser l'espace */
+    .competences table th:nth-child(1),
+    .competences table td:nth-child(1) {
+        width: 30%;
     }
     
-    .apropo {
-        width: 90%; /* Prend plus de place sur tablette */
+    .competences table th:nth-child(2),
+    .competences table td:nth-child(2) {
+        width: 50%;
+    }
+
+    .competences table th:nth-child(3),
+    .competences table td:nth-child(3) {
+        width: 20%;
+        text-align: center;
+    }
+
+
+    /* 5. SECTION PROJETS (1 colonne sur mobile) */
+    .cellule {
+        grid-template-columns: 1fr; /* Une seule carte par ligne */
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .carte {
+        height: auto; /* Laisse le contenu définir la hauteur */
+    }
+
+    /* 6. FOOTER */
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustements pour très petits écrans (iPhone SE, etc.) */
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.2rem;
+    }
+    
+    .hero img {
+        width: 150px;
+        height: 150px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    header {
-        flex-direction: column; /* Menu au-dessus ou en-dessous du logo */
-        padding: 1.5rem;
-        gap: 1rem;
-    }
+    /* ... (reste du code header) ... */
 
-    ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    ul li {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .hero {
+    ul.nav-list {
+        display: flex; /* On utilise flex mais on le cache avec l'opacité et le transform */
         flex-direction: column;
-        margin: 5rem 1rem;
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        padding: 0 20px; /* On commence avec un padding vertical à 0 */
+        
+        /* --- Animation de glissement --- */
+        max-height: 0;        /* Hauteur de départ */
+        overflow: hidden;      /* Cache le contenu qui dépasse */
+        opacity: 0;           /* Invisible au départ */
+        transform: translateY(-10px); /* Petit décalage vers le haut */
+        transition: all 0.4s ease-in-out; /* Animation fluide de 0.4 seconde */
     }
 
-    .hero h1 {
-        font-size: 2.5rem; /* Titre plus petit sur mobile */
-    }
-
-    .hero img {
-        width: 200px;
-        height: 200px;
-    }
-
-    .cellule {
-        grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
-    }
-
-    .competences table {
-        width: 95%;
-        font-size: 0.9rem; /* Réduit la taille du tableau */
-    }
-
-    section h2 {
-        font-size: 2rem;
+    /* Quand le menu a la classe .active (ajoutée par le JS) */
+    ul.nav-list.active {
+        max-height: 500px;    /* Hauteur maximale une fois ouvert */
+        padding: 20px;        /* On remet le padding */
+        opacity: 1;           /* Devient visible */
+        transform: translateY(0); /* Revient à sa place */
     }
 }
 
-@media screen and (max-width: 480px) {
-    header div a {
-        font-size: 1.6rem;
-    }
 
-    ul li a {
-        font-size: 0.9rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    footer {
-        padding: 2rem 1rem;
-    }
-}

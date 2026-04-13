@@ -15,10 +15,14 @@
         <div>
             <a href="#">Mon Portfolio</a>
         </div>
+        <!-- Nouveau bouton hamburger -->
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
         <nav>
-            <ul>
-                <li><a href="Index.html" class="active">Acceuill</a></li>
-                <li><a href="projets.html">Projets</a></li>
+            <ul class="nav-list">
+                <li><a href="Index.html">Acceuill</a></li>
+                <li><a href="projets.html" class="active">Projets</a></li>
                 <li><a href="passion.html">Passions</a></li>
                 <li><a href="divertissement.html">Divertissement</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -35,7 +39,7 @@
         <section class="projets">
             <div class="cellule">
                 <div class="carte">
-                    <img src="Image/Attack on Titan.jpg">
+                    <img src="Image/E-commerce.jpg">
                     <h3>Site E-commerce</h3>
                     <p>Une boutique en ligne complète développée avec HTML, CSS et JavaScript.</p>
                     
@@ -52,7 +56,7 @@
                 </div>
 
                 <div class="carte">
-                    <img src="Image/Echec.jpg">
+                    <img src="Image/Gestionnaire de Tâches.jpg">
                     <h3>Gestionnaire de Tâches</h3>
                     <p>Application web pour organiser ses projets avec stockage local.</p>
 
@@ -69,7 +73,7 @@
 
 
                 <div class="carte">
-                    <img src="Image/Iron Man.jpg">
+                    <img src="Image/Blog Personnel.jpg">
                     <h3>Blog Personnel</h3>
                     <p>Projet en cours de migration vers Laravel.</p>
 
@@ -86,7 +90,7 @@
 
 
                 <div class="carte">
-                    <img src="Image/Itachi Uchiha.jpg">
+                    <img src="Image/Dashboard d'Analyse.jpg">
                     <h3>Dashboard d'Analyse</h3>
                     <p>Visualisation de données avec Python et Matplotlib.</p>
 
@@ -103,7 +107,7 @@
 
 
                 <div class="carte">
-                    <img src="Image/maquette_projet.JPG">
+                    <img src="Image/Application Météo.jpg">
                     <h3>Application Météo</h3>
                     <p>Application utilisant une API météo en temps réel.</p>
 
@@ -120,7 +124,7 @@
 
 
                 <div class="carte">
-                    <img src="Image/valkirie.JPG">
+                    <img src="Image/Maquette Mobile UI.jpg">
                     <h3>Maquette Mobile UI</h3>
                     <p>Interface utilisateur moderne pour application mobile.</p>
 
@@ -144,5 +148,20 @@
         <i class="fa-brands fa-x-twitter"></i>
         <i class="fa-brands fa-google"></i>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            // Cela va déclencher l'animation CSS max-height et opacity
+            navList.classList.toggle('active');
+            
+            // Change l'icône
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+    </script>
 </body>
 </html>
