@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Mon portefolio</title>
+    <!-- Polices & Icônes -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- Bibliothèque d'Animation AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <title>Mon Portfolio - Contact</title>
 </head>
 <body>
-    <header>
-        <div>
+
+    <!-- NAVBAR -->
+    <header class="main-nav">
+        <div class="logo-box">
             <a href="#">Mon Portfolio</a>
         </div>
-        <!-- Nouveau bouton hamburger -->
+        
         <div class="menu-toggle" id="mobile-menu">
             <i class="fa-solid fa-bars"></i>
         </div>
+
         <nav>
             <ul class="nav-list">
-                <li><a href="Index.html">Acceuill</a></li>
+                <li><a href="Index.html">Accueil</a></li>
                 <li><a href="projets.html">Projets</a></li>
                 <li><a href="passion.html">Passions</a></li>
                 <li><a href="divertissement.html">Divertissement</a></li>
@@ -29,42 +33,148 @@
             </ul>
         </nav>
     </header>
-    
-    <section>
-        <div>
-            <h2>Contact nous</h2>
-        </div>
 
-        <div class="content">
-            <!-- Remplacement de l'emoji par l'icône Font Awesome -->
-            <div class="crane-icon">
-                <i class="fa-solid fa-trowel-bricks"></i> <!-- Icône de construction -->
-            </div>
-            
-            <h1>Site en travaux</h1>
-            <p>Le contenu arrive bientôt.</p>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>N'hésitez pas à nous contacter</h1>
+            <p>Avec plus de 20 ans d'expérience, nous pouvons offrir d'excellents résultats pour votre entreprise en ligne sans coûts supplémentaires ou engagements.</p>
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Mike Kabela — Tous droits réservés</p>
-        <i class="fa-brands fa-github"></i>
-        <i class="fa-brands fa-x-twitter"></i>
-        <i class="fa-brands fa-google"></i>
+    <!-- ZONE DE CONTACT -->
+    <section class="contact-area">
+        <div class="contact-flex-container">
+            
+            <!-- FORMULAIRE FLOTTANT -->
+            <div class="form-card" data-aos="fade-right" data-aos-delay="200">
+                <h3>Laissez votre message</h3>
+                <form action="https://formspree.io/f/xqewnwde" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nom</label>
+                            <input type="text" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="Votre email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Sujet</label>
+                        <input type="text" name="subject" placeholder="Sujet" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Message" required></textarea>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn-primary">Envoyer le message</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- INFOS DE CONTACT -->
+            <div class="info-content" data-aos="fade-left" data-aos-delay="400">
+                <h2>N'hésitez pas à nous contacter</h2>
+                <p class="intro">Nous sommes là pour vous aider avec toutes vos questions et demandes. Contactez-nous pour discuter de vos projets.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-wrap circle-blue"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><strong>Bureau</strong><br>Jl. Merdeka Raya No.73B</div>
+                    </div>
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-wrap circle-yellow"><i class="fas fa-phone"></i></div>
+                        <div><strong>Téléphone</strong><br>(+243) 971 264 611</div>
+                    </div>
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-wrap circle-purple"><i class="fas fa-clock"></i></div>
+                        <div><strong>Heures de travail</strong><br>Tous les jours 09h - 19h</div>
+                    </div>
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-wrap circle-green"><i class="fas fa-envelope"></i></div>
+                        <div><strong>Email</strong><br>mikekanangila19@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="social-side">
+                    <span class="social-text">Réseaux sociaux :</span>
+                    <div class="social-icons">
+                        <a href="#" class="social-item"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-item"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-item"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CTA -->
+    <section class="cta-section" data-aos="zoom-in">
+        <div class="cta-card">
+            <span class="cta-badge"><i class="fas fa-headset"></i> Nous sommes prêts 24h/24</span>
+            <h2>Vous avez un projet en tête ? Parlons-en</h2>
+            <p>Notre équipe est prête à discuter de votre projet et à vous offrir des solutions sur mesure adaptées à vos besoins.</p>
+            <div class="phone-cta">
+                <span class="phone-number">+243 842-050-524</span>
+                <div class="phone-icon"><i class="fas fa-phone"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-col brand">
+                <h2 class="footer-logo">Blucorp</h2>
+                <p>Une entreprise de confiance créée pour aider votre entreprise à se développer.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Avis</a></li>
+                    <li><a href="#">Tarifs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Termes et conditions</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Nous trouver</h4>
+                <p>Lun - Sam : 8h - 21h</p>
+                <p>Jl. Merdeka Raya No.73B, Bali</p>
+                <p><strong>blucorp@support.com</strong></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>©2026 Mike Kabela — Tous droits réservés</p>
+            <div class="footer-socials">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin-in"></i>
+            </div>
+        </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        // Toggle Menu Mobile
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.querySelector('.nav-list');
-
         menuToggle.addEventListener('click', () => {
-            // Cela va déclencher l'animation CSS max-height et opacity
             navList.classList.toggle('active');
-            
-            // Change l'icône
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
         });
     </script>
 </body>

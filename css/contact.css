@@ -1,0 +1,402 @@
+/* ============================================================
+   VARIABLES ET CONFIGURATION GÉNÉRALE
+   ============================================================ */
+:root {
+    --violet-doux: #6c63ff;
+    --violet-fonce: #050a30;
+    --orange-vif: #ffa726;
+    --gris-tres-clair: #f4f7ff;
+    --blanc: #ffffff;
+    --texte: #333;
+    --gris-fonce: #666;
+}
+
+* { 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: var(--gris-tres-clair);
+    color: var(--texte);
+    overflow-x: hidden;
+}
+
+/* --- BARRE DE NAVIGATION (NAVBAR) --- */
+.main-nav {
+    background-color: var(--blanc);
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%; /* Aligné avec tes marges de page */
+    width: 100%; /* La navbar reste pleine largeur pour le fond blanc */
+}
+
+/* On centre le contenu de la nav si tu veux qu'il s'aligne sur tes blocs à 90% */
+.main-nav .logo-box, .main-nav nav {
+    max-width: 1300px;
+}
+
+.main-nav .logo-box a {
+    text-decoration: none;
+    font-size: 1.8rem; /* Légèrement réduit pour l'élégance */
+    font-weight: 800;
+    color: var(--violet-doux);
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px; /* Utilisation de gap au lieu de margin-left */
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: var(--violet-fonce); /* Utilise ta variable foncée */
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+/* L'effet de soulignement au survol */
+.nav-list li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--violet-doux);
+    transition: width 0.3s ease;
+}
+
+.nav-list li a:hover, 
+.nav-list li a.active {
+    color: var(--violet-doux);
+}
+
+.nav-list li a:hover::after, 
+.nav-list li a.active::after {
+    width: 100%;
+}
+
+/* --- RESPONSIVE NAVBAR --- */
+.menu-toggle {
+    display: none; /* Caché sur ordinateur */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--violet-fonce);
+}
+
+/* --- CONTENEUR DE LARGEUR (Pour aligner toutes les sections) --- */
+.hero-section, 
+.contact-area, 
+.cta-section, 
+.main-footer {
+    width: 90%;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero-section {
+    height: 480px;
+    background-color: var(--violet-fonce);
+    color: var(--blanc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 30px 30px 0 0;
+    margin-top: 20px;
+    /* Pente oblique */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hero-content {
+    max-width: 700px;
+    padding: 0 20px;
+    margin-bottom: 60px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Taille de police fluide */
+    margin-bottom: 20px;
+}
+
+/* ============================================================
+   ZONE DE CONTACT (Formulaire & Infos)
+   ============================================================ */
+.contact-area {
+    margin-top: -160px;
+    position: relative;
+    z-index: 10;
+}
+
+.contact-flex-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* --- CARTE FORMULAIRE --- */
+.form-card {
+    background: var(--blanc);
+    flex: 0 0 45%;          /* Réduit de 55% à 45% pour un look plus fin */
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+    border-radius: 10px;
+    font-family: inherit;
+}
+
+textarea { height: 120px; }
+
+/* --- FOOTER DU FORMULAIRE --- */
+.form-footer {
+    display: flex;
+    justify-content: center; /* Centre le bouton horizontalement */
+    margin-top: 30px;
+    width: 100%;  
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--gris-fonce);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--violet-doux);
+    color: white;
+    border: none;
+    padding: 15px 45px;      /* Un peu plus de largeur pour le bouton seul */
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--violet-fonce);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+}
+
+/* --- SECTION INFOS --- */
+.info-content {
+    flex: 0 0 45%;          /* On équilibre avec le formulaire */
+    margin-top: 115px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.info-card {
+    background: var(--blanc);
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.info-card div {
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+}
+
+.icon-wrap {
+    min-width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Couleurs des icônes */
+.circle-blue { background: #eef2ff; color: #3b5dff; }
+.circle-yellow { background: #fff9e6; color: var(--orange-vif); }
+.circle-purple { background: #f5eeff; color: #a361ff; }
+.circle-green { background: #eafff2; color: #2ecc71; }
+
+/* --- BARRE SOCIALE --- */
+.social-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-item {
+    width: 40px;
+    height: 40px;
+    background: var(--blanc);
+    color: var(--violet-doux);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.social-item:hover {
+    background: var(--violet-doux);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* ============================================================
+   SECTION CTA
+   ============================================================ */
+.cta-section {
+    margin-top: 100px;
+}
+
+.cta-card {
+    background: var(--violet-fonce);
+    color: white;
+    padding: 80px 40px;
+    text-align: center;
+    border-radius: 50px 50px 0 0;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--violet-doux);
+    padding: 10px 10px 10px 30px;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+
+.phone-icon {
+    background: white;
+    color: var(--violet-doux);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.main-footer {
+    background: var(--violet-fonce);
+    color: white;
+    padding: 60px 5%;
+    border-radius: 0 0 30px 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.footer-col h4 { margin-bottom: 20px; color: var(--orange-vif); }
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 12px; opacity: 0.8; }
+.footer-col a { color: white; text-decoration: none; }
+
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    .contact-flex-container { width: 95%; flex-direction: column; align-items: center; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; font-size: 1.5rem; cursor: pointer; }
+    .nav-list { 
+        display: none; position: absolute; top: 100%; left: 0; width: 100%; 
+        background: var(--blanc); flex-direction: column; padding: 20px; text-align: center;
+    }
+    .nav-list.active { display: flex; }
+    .form-row { flex-direction: column; gap: 0; }
+    .footer-top { grid-template-columns: 1fr; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+}
